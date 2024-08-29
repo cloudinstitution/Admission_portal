@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50vh;
+            padding: 20;
+        }
+        .background-clip {
+            position: absolute;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+
+        @media (max-aspect-ratio: 16/9){
+            .background-clip{
+                size: auto;
+            }
+        }
+
+        .container {
+            position: relative;
+            top: 100px;
+            width: 100%;
+            max-width: 600px;
+            background-color: transparent;
+            border: 2px solid gray;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgb(0, 0, 0);
+            padding: 20px;
+            backdrop-filter: blur(20px);
+        }
+        .container h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            margin-bottom: 5px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: none;
+            box-sizing:border-box;
+            border-bottom: 2px solid white;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted plays-inline class="background-clip">
+        <source src="{{ url_for('static', filename = '3255275-uhd_3840_2160_25fps.mp4')}}" type="video/mp4">
+    </video>
+    <div class="container">
+        <h1>Admission Form</h1>
+        <form action="{{ url_for('submit_admission')}}" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="text" id="contact" name="contact" required>
+            </div>
+            <div class="form-group">
+                <label for="fathers_name">Father's Name</label>
+                <input type="text" id="fathers_name" name="fathers_name" required>
+            </div>
+            <div class="form-group">
+                <label for="mothers_name">Mother's Name</label>
+                <input type="text" id="mothers_name" name="mothers_name" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="id_proof">ID Proof (PAN/Aadhar/License) - PDF Only</label>
+                <input type="file" class="ID" id="id_proof" name="id_proof" accept=".pdf" required>
+            </div>
+            <div class="form-group">
+                <label for="marksheet">Marksheet - PDF Only</label>
+                <input type="file" id="marksheet" name="marksheet" accept=".pdf" required>
+            </div>
+            <div class="form-group">
+                <label for="fees_paid">Fees Paid</label>
+                <input type="number" id="fees_paid" name="fees_paid" required>
+            </div>
+            <div class="form-group">
+                <label for="payment_date">Date of Payment</label>
+                <input type="date" id="payment_date" name="payment_date" required>
+            </div>
+            <div class="form-group">
+                <label for="total_amount">Total Amount</label>
+                <input type="number" id="total_amount" name="total_amount" required>
+            </div>
+            <div class="form-group">
+                <label for="balance_amount">Balance Amount</label>
+                <input type="number" id="balance_amount" name="balance_amount" required>
+            </div>
+            <div class="form-group">
+                <label for="due_date">Due Date</label>
+                <input type="date" id="due_date" name="due_date" required>
+            </div>
+            <div class="form-group">
+                <label for="parent_contact">Parent's Contact Number</label>
+                <input type="text" id="parent_contact" name="parent_contact" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

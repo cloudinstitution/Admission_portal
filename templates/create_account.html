@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Creation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .background-clip {
+            position: absolute;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+    .background-clip {
+        background-size: cover;
+    }
+}
+
+
+        .container {
+            position: relative;
+            height: 600px;
+            width: 400px;
+            background-color: transparent;
+            border: 2px solid gray;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgb(0, 0, 0);
+            backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container .form-group{
+            width: 100%;
+            padding: 10px;
+        }
+
+        .container h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .container p{
+            position: absolute;
+            bottom: 30px;
+            font-size: 15px;
+
+        }.container a{
+            position: relative ;
+            left: 30% ;
+            top: 8px;
+            color: rgb(9, 10, 16);
+            font-size: 15px ;
+        }
+
+
+
+        .form-group{
+            position: relative;
+            width: 100%;
+            height: 50px;
+            background: transparent;
+            border-bottom: 2px solid rgb(255, 255, 255);
+            margin: 30px 0;
+        }
+
+        .form-group input{
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: white;
+            font-weight: 500;
+            pointer-events: none;
+        }
+
+        .form-group button {
+            position: relative;
+            border: none; 
+            width: 100%;
+            padding: 20px;
+            background-color: #60a1d6;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #02060a;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted plays-inline class="background-clip">
+        <source src="{{ url_for('static', filename='3255275-uhd_3840_2160_25fps.mp4') }}" type="video/mp4">
+    </video>
+    <div class="container">
+        <h1>Create an Account</h>
+        <form action="{{ url_for('submit_admission')}}" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="username" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone no.</label>
+                <input type="phone" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmpassword">Confirm Password</label>
+                <input type="password" id="confirmpassword" name="confirm-password" required>
+            </div>
+            <div class="button">
+                <button type="submit">Create Account</button>
+            </div>
+        </form>
+        <p style="text-align: center;">Already have an account? .</p><a href="{{ url_for('login') }}">Login</a>
+        .</p>
+    </div>
+</body>
+</html>
